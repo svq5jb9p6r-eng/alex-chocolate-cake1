@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex's Chocolate Cake</title>
+<style>
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 10%,rgba(255,255,255,.45),transparent 35%),radial-gradient(circle at 85% 15%,rgba(255,255,255,.35),transparent 40%),linear-gradient(180deg,#5a0f0f 0%,#8b1a1a 40%,#fffbf0 100%);z-index:-3}
+body,html{margin:0;font-family:'Segoe UI',Tahoma,sans-serif;overflow-x:hidden}
+.container{max-width:900px;margin:auto;padding:32px}
+h1{text-align:center;color:white;background:#165b33;padding:20px;border-radius:20px}
+.section{background:white;padding:24px;border-radius:20px;margin:24px 0}
+.language-buttons,.media-bar{text-align:center;margin-bottom:16px}
+.language-buttons button,.media-bar button{padding:12px 20px;border-radius:16px;border:none;font-weight:700;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.language-buttons button:hover,.media-bar button:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.language-buttons button:active,.media-bar button:active{transform:translateY(1px);box-shadow:0 3px 6px rgba(0,0,0,.25)}
+#en{background:#1f3c88;color:white}
+#fr{background:#165b33;color:white}
+#pt{background:#7b1e7a;color:white}
+@media print{.language-buttons,.media-bar,.snowflake{display:none}}
+.snowflake{position:fixed;top:-10px;color:white;font-size:1.2em;user-select:none;pointer-events:none;animation:fall linear infinite;z-index:-1;opacity:.85}
+@keyframes fall{to{transform:translateY(110vh)}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="language-buttons">
+    <button id="en" onclick="setLang('en')">English</button>
+    <button id="fr" onclick="setLang('fr')">Français</button>
+    <button id="pt" onclick="setLang('pt')">Português</button>
+  </div>
+  <div class="media-bar">
+    <button id="music-btn">🎵 Music</button>
+    <button id="print-btn">🖨 Print</button>
+  </div>
+  <h1 id="title"></h1>
+  <div class="section"><p id="time-info"></p></div>
+  <div class="section" id="intro"><p></p></div>
+  <div class="section" id="step1"><h2></h2><p></p></div>
+  <div class="section" id="step2"><h2></h2><ul></ul></div>
+  <div class="section" id="step3"><h2></h2><ul></ul></div>
+  <div class="section" id="step4"><h2></h2><ol></ol></div>
+</div>
+
+<audio id="music" loop preload="auto">
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_2d9f9f1d64.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let currentLang='en';
+let musicOn=false;
+
+const texts={
+ times:{
+  en:"Prep: 20 mins | Bake: 35–40 mins | Total: 1 hr",
+  fr:"Préparation: 20 min | Cuisson: 35–40 min | Total: 1 h",
+  pt:"Preparação: 20 min | Cozedura: 35–40 min | Total: 1 h"
+ },
+ buttons:{
+  en:{music:"🎵 Holiday Music",print:"🖨 Print Recipe"},
+  fr:{music:"🎵 Musique de Noël",print:"🖨 Imprimer la recette"},
+  pt:{music:"🎵 Música de Natal",print:"🖨 Imprimir receita"}
+ },
+ en:{title:"Alex's Chocolate Cake",intro:"A rich Christmas chocolate cake you can easily bake at home.",step1:"Mason Jar Contents",step1p:"1 jar of dry cake mix",step2list:["1 cup buttermilk","1/2 cup oil","2 eggs","1 tsp vanilla","1 cup hot coffee"],step3list:["170 g chocolate","115 g butter","1 egg yolk","1 tsp vanilla","1¼ cups sugar"],step4list:["Preheat the oven to 350°F (175°C).","Mix wet and dry ingredients.","Bake 35–40 minutes."]},
+ fr:{title:"Gâteau au chocolat d'Alex",intro:"Un gâteau de Noël riche et facile à préparer.",step1:"Contenu du bocal",step1p:"1 bocal de mélange sec",step2list:["1 tasse babeurre","1/2 tasse huile","2 œufs","1 c. vanille","1 tasse café"],step3list:["170 g chocolat","115 g beurre","1 jaune","1 c. vanille","150 g sucre"],step4list:["Préchauffez le four à 175°C (350°F).","Mélangez les ingrédients.","Cuire 35–40 minutes."]},
+ pt:{title:"Bolo de chocolate do Alex",intro:"Um bolo de Natal rico e simples de fazer.",step1:"Conteúdo do pote",step1p:"1 pote de mistura seca",step2list:["1 chávena buttermilk","1/2 chávena óleo","2 ovos","1 c. baunilha","1 chávena café"],step3list:["170 g chocolate","115 g manteiga","1 gema","1 c. baunilha","150 g açúcar"],step4list:["Pré-aqueça o forno a 175°C (350°F).","Misture os ingredientes.","Asse 35–40 minutos."]}
+};
+
+function setLang(lang){
+ currentLang=lang;
+ document.getElementById('title').innerText=texts[lang].title;
+ document.getElementById('time-info').innerText=texts.times[lang];
+ document.querySelector('#intro p').innerText=texts[lang].intro;
+ document.querySelector('#step1 h2').innerText=texts[lang].step1;
+ document.querySelector('#step1 p').innerText=texts[lang].step1p;
+ fill('#step2 ul',texts[lang].step2list);
+ fill('#step3 ul',texts[lang].step3list);
+ fill('#step4 ol',texts[lang].step4list);
+ document.getElementById('music-btn').innerText=texts.buttons[lang].music;
+ document.getElementById('print-btn').innerText=texts.buttons[lang].print;
+}
+function fill(sel,list){const el=document.querySelector(sel);el.innerHTML='';list.forEach(t=>{const li=document.createElement('li');li.textContent=t;el.appendChild(li)})}
+
+// Music
+const audio=document.getElementById('music');
+document.getElementById('music-btn').addEventListener('click',()=>{
+ if(!musicOn){audio.volume=0.6;audio.play();musicOn=true}
+ else{audio.pause();musicOn=false}
+});
+
+// Print
+document.getElementById('print-btn').addEventListener('click',()=>window.print());
+
+// Snowflakes
+for(let i=0;i<40;i++){const s=document.createElement('div');s.className='snowflake';s.textContent='❄';s.style.left=Math.random()*100+'vw';s.style.animationDuration=8+Math.random()*12+'s';s.style.fontSize=12+Math.random()*18+'px';document.body.appendChild(s)}
+
+setLang('en');
+</script>
+</body>
+</html>
+
