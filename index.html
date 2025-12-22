@@ -7,12 +7,68 @@
 <style>
 body {
     font-family: Georgia, "Times New Roman", serif;
-    background: linear-gradient(to bottom, #fffaf0 0%, #ffe6e6 100%);
-    color: #333;
+    background: linear-gradient(to bottom, #8B0000 0%, #006400 100%); /* Dark red to dark green */
+    color: #fff;
     margin: 0;
     padding: 0;
     position: relative;
     overflow-x: hidden;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px;
+    background: rgba(0,0,0,0.7);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #FFD700; /* gold */
+}
+
+h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    color: #FFA500; /* orange */
+}
+
+h3 {
+    font-size: 22px;
+    margin-top: 25px;
+}
+
+p, ul, ol {
+    font-size: 18px;
+}
+
+ul, ol {
+    margin-left: 30px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #FFD700;
+    margin: 40px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px 5px 30px 5px;
+    font-size: 16px;
+    background-color: #FFD700;
+    color: #8B0000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFA500;
 }
 
 /* Snowflakes animation */
@@ -20,7 +76,7 @@ body {
     position: absolute;
     top: -10px;
     color: #fff;
-    font-size: 1em;
+    font-size: 20px;
     user-select: none;
     z-index: 9999;
     animation-name: fall;
@@ -33,71 +89,23 @@ body {
     100% { transform: translateY(100vh) rotate(360deg); }
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 40px;
-    background: rgba(255,255,255,0.9);
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-h1 {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #b30000;
-}
-
-h2 {
-    font-size: 22px;
-    margin-top: 40px;
-    page-break-before: always;
-    color: #990000;
-}
-
-h3 {
-    font-size: 18px;
-    margin-top: 20px;
-}
-
-p, ul, ol {
-    font-size: 14px;
-}
-
-ul, ol {
-    margin-left: 24px;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #b30000;
-    margin: 40px 0;
-}
-
 @media print {
-    body {
-        margin: 0;
-        background: white;
-    }
-    .container {
-        background: white;
-        box-shadow: none;
-    }
-    .snowflake {
-        display: none;
-    }
+    button { display: none; }
+    body { background: white; color: black; }
+    .container { background: white; box-shadow: none; }
+    .snowflake { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- Snowflake elements -->
 <script>
-for(let i=0;i<50;i++){
+// Add snowflakes
+for(let i=0;i<100;i++){
     const snow=document.createElement('div');
     snow.className='snowflake';
     snow.style.left=Math.random()*100+'%';
-    snow.style.fontSize=(Math.random()*10+10)+'px';
+    snow.style.fontSize=(Math.random()*15+10)+'px';
     snow.style.animationDuration=(Math.random()*5+5)+'s';
     snow.innerHTML='❄';
     document.body.appendChild(snow);
@@ -107,11 +115,19 @@ for(let i=0;i<50;i++){
 <div class="container">
 
 <h1>Christmas Chocolate Cake in a Mason Jar</h1>
-<p>This mason jar contains only the dry ingredients. Add the wet ingredients, mix, bake, and enjoy.</p>
+
+<!-- Print button -->
+<button onclick="window.print()">Print Recipe</button>
+
+<!-- Language Buttons -->
+<button onclick="showLanguage('en')">English</button>
+<button onclick="showLanguage('fr')">Français</button>
+<button onclick="showLanguage('pt')">Português</button>
 
 <!-- ENGLISH -->
-<h2>English</h2>
-<h3>Dry Ingredients (Inside the Mason Jar)</h3>
+<div id="en">
+<p>This mason jar contains only the dry ingredients. Add the wet ingredients, mix, bake, and enjoy.</p>
+<h2>Dry Ingredients (Inside the Mason Jar)</h2>
 <ul>
 <li>1 cup all-purpose flour</li>
 <li>3/4 cup granulated sugar</li>
@@ -121,7 +137,7 @@ for(let i=0;i<50;i++){
 <li>1/2 teaspoon salt</li>
 </ul>
 
-<h3>Wet Ingredients to Add</h3>
+<h2>Wet Ingredients to Add</h2>
 <ul>
 <li>1/2 cup milk (or buttermilk)</li>
 <li>1/4 cup vegetable oil</li>
@@ -130,7 +146,7 @@ for(let i=0;i<50;i++){
 <li>1/4 cup coffee (or hot water, milk, buttermilk, or hot chocolate)</li>
 </ul>
 
-<h3>Baking Instructions</h3>
+<h2>Baking Instructions</h2>
 <ol>
 <li>Preheat oven to 350°F (175°C).</li>
 <li>Grease one 8–9 inch round cake pan.</li>
@@ -142,8 +158,8 @@ for(let i=0;i<50;i++){
 <li>Cool completely before icing.</li>
 </ol>
 
-<h3>Optional Chocolate Icing (Ina Garten–Style)</h3>
-<h4>Ingredients</h4>
+<h2>Optional Chocolate Icing (Ina Garten–Style)</h2>
+<h3>Ingredients</h3>
 <ul>
 <li>6 oz semisweet chocolate</li>
 <li>1/2 cup unsalted butter</li>
@@ -151,7 +167,7 @@ for(let i=0;i<50;i++){
 <li>1 teaspoon vanilla extract</li>
 <li>1 tablespoon coffee or milk</li>
 </ul>
-<h4>Instructions</h4>
+<h3>Instructions</h3>
 <ol>
 <li>Melt the chocolate gently and let cool slightly.</li>
 <li>Cream the butter until smooth.</li>
@@ -159,12 +175,12 @@ for(let i=0;i<50;i++){
 <li>Add melted chocolate and coffee or milk.</li>
 <li>Beat until smooth and spreadable.</li>
 </ol>
-
-<hr>
+</div>
 
 <!-- FRENCH -->
-<h2>Français</h2>
-<h3>Ingrédients secs (dans le pot)</h3>
+<div id="fr" style="display:none;">
+<p>Ce pot Mason contient seulement les ingrédients secs. Ajoutez les ingrédients liquides, mélangez, faites cuire et dégustez.</p>
+<h2>Ingrédients secs (dans le pot)</h2>
 <ul>
 <li>1 tasse de farine tout usage</li>
 <li>3/4 tasse de sucre</li>
@@ -174,7 +190,7 @@ for(let i=0;i<50;i++){
 <li>1/2 cuillère à café de sel</li>
 </ul>
 
-<h3>Ingrédients liquides à ajouter</h3>
+<h2>Ingrédients liquides à ajouter</h2>
 <ul>
 <li>1/2 tasse de lait (ou babeurre)</li>
 <li>1/4 tasse d’huile végétale</li>
@@ -183,7 +199,7 @@ for(let i=0;i<50;i++){
 <li>1/4 tasse de café (ou eau chaude, lait, babeurre ou chocolat chaud)</li>
 </ul>
 
-<h3>Instructions</h3>
+<h2>Instructions</h2>
 <ol>
 <li>Préchauffer le four à 350°F (175°C).</li>
 <li>Beurrer un moule rond de 20–23 cm.</li>
@@ -194,8 +210,8 @@ for(let i=0;i<50;i++){
 <li>Laisser refroidir avant de glacer.</li>
 </ol>
 
-<h3>Glaçage au chocolat (style Ina Garten)</h3>
-<h4>Ingrédients</h4>
+<h2>Glaçage au chocolat (style Ina Garten)</h2>
+<h3>Ingrédients</h3>
 <ul>
 <li>170 g de chocolat mi-sucré</li>
 <li>1/2 tasse de beurre</li>
@@ -203,7 +219,7 @@ for(let i=0;i<50;i++){
 <li>1 cuillère à café de vanille</li>
 <li>1 cuillère à soupe de café ou lait</li>
 </ul>
-<h4>Instructions</h4>
+<h3>Instructions</h3>
 <ol>
 <li>Faire fondre le chocolat et laisser tiédir.</li>
 <li>Crémer le beurre jusqu’à lisse.</li>
@@ -211,12 +227,12 @@ for(let i=0;i<50;i++){
 <li>Incorporer le chocolat fondu et le liquide.</li>
 <li>Mélanger jusqu’à texture onctueuse.</li>
 </ol>
-
-<hr>
+</div>
 
 <!-- PORTUGUESE -->
-<h2>Português</h2>
-<h3>Ingredientes secos (no frasco)</h3>
+<div id="pt" style="display:none;">
+<p>Este pote Mason contém apenas os ingredientes secos. Adicione os ingredientes líquidos, misture, asse e aproveite.</p>
+<h2>Ingredientes secos (no frasco)</h2>
 <ul>
 <li>1 xícara de farinha de trigo</li>
 <li>3/4 xícara de açúcar</li>
@@ -226,7 +242,7 @@ for(let i=0;i<50;i++){
 <li>1/2 colher de chá de sal</li>
 </ul>
 
-<h3>Ingredientes líquidos a adicionar</h3>
+<h2>Ingredientes líquidos a adicionar</h2>
 <ul>
 <li>1/2 xícara de leite (ou leitelho)</li>
 <li>1/4 xícara de óleo vegetal</li>
@@ -235,7 +251,7 @@ for(let i=0;i<50;i++){
 <li>1/4 xícara de café (ou água quente, leite, leitelho ou chocolate quente)</li>
 </ul>
 
-<h3>Instruções</h3>
+<h2>Instruções</h2>
 <ol>
 <li>Pré-aqueça o forno a 350°F (175°C).</li>
 <li>Unte uma forma redonda de 20–23 cm.</li>
@@ -246,8 +262,8 @@ for(let i=0;i<50;i++){
 <li>Deixe esfriar antes de cobrir.</li>
 </ol>
 
-<h3>Cobertura de chocolate (estilo Ina Garten)</h3>
-<h4>Ingredientes</h4>
+<h2>Cobertura de chocolate (estilo Ina Garten)</h2>
+<h3>Ingredientes</h3>
 <ul>
 <li>170 g de chocolate meio amargo</li>
 <li>1/2 xícara de manteiga</li>
@@ -255,7 +271,7 @@ for(let i=0;i<50;i++){
 <li>1 colher de chá de baunilha</li>
 <li>1 colher de sopa de café ou leite</li>
 </ul>
-<h4>Instruções</h4>
+<h3>Instruções</h3>
 <ol>
 <li>Derreta o chocolate e deixe esfriar levemente.</li>
 <li>Bata a manteiga até ficar cremosa.</li>
@@ -263,6 +279,17 @@ for(let i=0;i<50;i++){
 <li>Incorpore o chocolate e o líquido.</li>
 <li>Bata até obter uma cobertura lisa.</li>
 </ol>
+</div>
+
+<script>
+// Show only the selected language
+function showLanguage(lang) {
+    document.getElementById('en').style.display = 'none';
+    document.getElementById('fr').style.display = 'none';
+    document.getElementById('pt').style.display = 'none';
+    document.getElementById(lang).style.display = 'block';
+}
+</script>
 
 </div>
 </body>
