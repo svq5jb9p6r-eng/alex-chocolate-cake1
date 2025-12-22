@@ -5,53 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Christmas Chocolate Cake in a Mason Jar</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background: url('/mnt/data/b6e1a7ac-e68e-40b4-8fc6-ccac5204be98.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+    background: linear-gradient(to bottom, #ffe6e6, #fff);
+    color: #333;
 }
 
 .container {
     max-width: 900px;
     margin: 50px auto;
     padding: 50px;
-    background: rgba(0,0,0,0.6); /* dark overlay for readability */
-    backdrop-filter: blur(5px);
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 h1 {
     text-align: center;
+    font-family: 'Playfair Display', serif;
     font-size: 3em;
     margin-bottom: 20px;
-    color: #FFD700;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    color: #c0392b;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
 h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 2em;
     margin-top: 40px;
-    color: #FFA500;
-    border-bottom: 2px solid #FFD700;
-    padding-bottom: 5px;
+    color: #27ae60;
+    border-bottom: 3px solid #c0392b;
+    padding-bottom: 8px;
 }
 
 h3 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.5em;
     margin-top: 25px;
-    color: #FFD700;
+    color: #c0392b;
 }
 
 p, ul, ol {
     font-size: 1.2em;
-    line-height: 1.6em;
+    line-height: 1.7em;
 }
 
 ul, ol {
@@ -59,38 +61,37 @@ ul, ol {
 }
 
 button {
-    padding: 12px 25px;
+    padding: 12px 30px;
     margin: 10px 5px 30px 5px;
     font-size: 1em;
     font-weight: bold;
-    background-color: #FFD700;
-    color: #8B0000;
+    background: linear-gradient(45deg, #c0392b, #e74c3c);
+    color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 button:hover {
-    background-color: #FFA500;
-    transform: scale(1.05);
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    transform: translateY(-2px) scale(1.05);
 }
 
 /* Snowflake animation */
 .snowflake {
     position: absolute;
     top: -10px;
-    color: #fff;
+    color: #ffffff;
     font-size: 20px;
     user-select: none;
     z-index: 9999;
     animation-name: fall;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 1;
+    text-shadow: 0 0 1px #7ec0ee, 0 0 3px #7ec0ee; /* subtle blue outline */
 }
-
-.snowflake.gold { color: #FFD700; }
 
 @keyframes fall {
     0% { transform: translateY(0) rotate(0deg); }
@@ -108,30 +109,40 @@ button:hover {
 <body>
 
 <script>
-// Add snowflakes
-for(let i=0;i<100;i++){
+// Natural snowflake spawning
+function createSnowflake() {
     const snow = document.createElement('div');
     snow.className = 'snowflake';
-    if(Math.random() < 0.2) snow.classList.add('gold'); // 20% golden
-    snow.style.left = Math.random()*100+'%';
-    snow.style.fontSize = (Math.random()*15+12)+'px';
-    snow.style.animationDuration = (Math.random()*7+5)+'s';
+    snow.style.left = Math.random() * 100 + '%';
+    snow.style.fontSize = (Math.random() * 15 + 12) + 'px';
+    snow.style.opacity = Math.random() * 0.8 + 0.2; // subtle opacity variation
+    snow.style.animationDuration = (Math.random() * 10 + 5) + 's'; // random speed
     snow.innerHTML = '❄';
     document.body.appendChild(snow);
+
+    // Remove snowflake after falling
+    snow.addEventListener('animationend', () => snow.remove());
 }
+
+// Spawn snowflakes at random intervals
+setInterval(() => {
+    createSnowflake();
+}, 200); // new snowflake every 200ms
 </script>
 
 <div class="container">
 <h1>Christmas Chocolate Cake in a Mason Jar</h1>
 
+<div style="text-align:center;">
 <button onclick="window.print()">Print Recipe</button>
 <button onclick="showLanguage('en')">English</button>
 <button onclick="showLanguage('fr')">Français</button>
 <button onclick="showLanguage('pt')">Português</button>
+</div>
 
 <!-- ENGLISH -->
 <div id="en">
-<p>This mason jar contains only the dry ingredients. Add the wet ingredients, mix, bake, and enjoy.</p>
+<p>This mason jar contains only the dry ingredients. Add the wet ingredients, mix, bake, and enjoy!</p>
 
 <h2>Dry Ingredients (Inside the Mason Jar)</h2>
 <ul>
@@ -185,7 +196,7 @@ for(let i=0;i<100;i++){
 
 <!-- FRENCH -->
 <div id="fr" style="display:none;">
-<p>Ce pot Mason contient seulement les ingrédients secs. Ajoutez les ingrédients liquides, mélangez, faites cuire et dégustez.</p>
+<p>Ce pot Mason contient seulement les ingrédients secs. Ajoutez les ingrédients liquides, mélangez, faites cuire et dégustez!</p>
 <h2>Ingrédients secs (dans le pot)</h2>
 <ul>
 <li>3/4 tasse de farine + 2 c. à soupe</li>
@@ -195,7 +206,6 @@ for(let i=0;i<100;i++){
 <li>1/2 cuillère à café de poudre à pâte</li>
 <li>1/2 cuillère à café de sel</li>
 </ul>
-
 <h2>Ingrédients liquides à ajouter</h2>
 <ul>
 <li>1/2 tasse de babeurre (lait)</li>
@@ -204,7 +214,6 @@ for(let i=0;i<100;i++){
 <li>1 cuillère à café de vanille</li>
 <li>1/4 tasse de café (ou eau chaude, lait, babeurre ou chocolat chaud)</li>
 </ul>
-
 <h2>Instructions</h2>
 <ol>
 <li>Préchauffer le four à 350°F (175°C).</li>
@@ -215,7 +224,6 @@ for(let i=0;i<100;i++){
 <li>Cuire 30–35 minutes.</li>
 <li>Laisser refroidir avant de glacer.</li>
 </ol>
-
 <h2>Glaçage au chocolat (style Ina Garten)</h2>
 <h3>Ingrédients</h3>
 <ul>
@@ -237,26 +245,24 @@ for(let i=0;i<100;i++){
 
 <!-- PORTUGUESE -->
 <div id="pt" style="display:none;">
-<p>Este pote Mason contém apenas os ingredientes secos. Adicione os ingredientes líquidos, misture, asse e aproveite.</p>
+<p>Este pote Mason contém apenas os ingredientes secos. Adicione os ingredientes líquidos, misture, asse e aproveite!</p>
 <h2>Ingredientes secos (no frasco)</h2>
 <ul>
-<li>3/4 xícara de farinha + 2 colheres de sopa</li>
-<li>1/4 xícara + 2 colheres de sopa de cacau em pó sem açúcar</li>
-<li>1 xícara de açúcar</li>
+<li>3/4 tassa de farinha + 2 colheres de sopa</li>
+<li>1/4 tassa + 2 colheres de sopa de cacau em pó sem açúcar</li>
+<li>1 tassa de açúcar</li>
 <li>1 colher de chá de bicarbonato de sódio</li>
 <li>1/2 colher de chá de fermento em pó</li>
 <li>1/2 colher de chá de sal</li>
 </ul>
-
 <h2>Ingredientes líquidos a adicionar</h2>
 <ul>
-<li>1/2 xícara de leitelho (leite)</li>
-<li>1/4 xícara de óleo vegetal</li>
+<li>1/2 tassa de leitelho (leite)</li>
+<li>1/4 tassa de óleo vegetal</li>
 <li>1 ovo grande</li>
 <li>1 colher de chá de baunilha</li>
-<li>1/4 xícara de café (ou água quente, leite, leitelho ou chocolate quente)</li>
+<li>1/4 tassa de café (ou água quente, leite, leitelho ou chocolate quente)</li>
 </ul>
-
 <h2>Instruções</h2>
 <ol>
 <li>Pré-aqueça o forno a 350°F (175°C).</li>
@@ -267,13 +273,12 @@ for(let i=0;i<100;i++){
 <li>Asse por 30–35 minutos.</li>
 <li>Deixe esfriar antes de cobrir.</li>
 </ol>
-
 <h2>Cobertura de chocolate (estilo Ina Garten)</h2>
 <h3>Ingredientes</h3>
 <ul>
 <li>170 g de chocolate meio amargo</li>
-<li>1/2 xícara de manteiga</li>
-<li>2 xícaras de açúcar de confeiteiro</li>
+<li>1/2 tassa de manteiga</li>
+<li>2 tassas de açúcar de confeiteiro</li>
 <li>1 colher de chá de baunilha</li>
 <li>1 colher de sopa de café ou leite</li>
 </ul>
