@@ -4,32 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Christmas Chocolate Cake in a Mason Jar</title>
-
 <style>
 body {
     font-family: Georgia, "Times New Roman", serif;
-    background: white;
-    color: black;
+    background: linear-gradient(to bottom, #fffaf0 0%, #ffe6e6 100%);
+    color: #333;
     margin: 0;
     padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Snowflakes animation */
+.snowflake {
+    position: absolute;
+    top: -10px;
+    color: #fff;
+    font-size: 1em;
+    user-select: none;
+    z-index: 9999;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
 }
 
 .container {
     max-width: 800px;
     margin: auto;
     padding: 40px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 h1 {
     text-align: center;
-    font-size: 26px;
+    font-size: 28px;
     margin-bottom: 10px;
+    color: #b30000;
 }
 
 h2 {
     font-size: 22px;
     margin-top: 40px;
     page-break-before: always;
+    color: #990000;
 }
 
 h3 {
@@ -47,18 +70,39 @@ ul, ol {
 
 hr {
     border: none;
-    border-top: 1px solid black;
+    border-top: 1px solid #b30000;
     margin: 40px 0;
 }
 
 @media print {
     body {
         margin: 0;
+        background: white;
+    }
+    .container {
+        background: white;
+        box-shadow: none;
+    }
+    .snowflake {
+        display: none;
     }
 }
 </style>
 </head>
 <body>
+
+<!-- Snowflake elements -->
+<script>
+for(let i=0;i<50;i++){
+    const snow=document.createElement('div');
+    snow.className='snowflake';
+    snow.style.left=Math.random()*100+'%';
+    snow.style.fontSize=(Math.random()*10+10)+'px';
+    snow.style.animationDuration=(Math.random()*5+5)+'s';
+    snow.innerHTML='❄';
+    document.body.appendChild(snow);
+}
+</script>
 
 <div class="container">
 
@@ -79,11 +123,11 @@ hr {
 
 <h3>Wet Ingredients to Add</h3>
 <ul>
-<li>1/2 cup milk or buttermilk</li>
+<li>1/2 cup milk (or buttermilk)</li>
 <li>1/4 cup vegetable oil</li>
 <li>1 large egg</li>
 <li>1 teaspoon vanilla extract</li>
-<li>Optional: 1/4 cup hot coffee or hot water, milk, buttermilk, or hot chocolate</li>
+<li>1/4 cup coffee (or hot water, milk, buttermilk, or hot chocolate)</li>
 </ul>
 
 <h3>Baking Instructions</h3>
@@ -102,10 +146,10 @@ hr {
 <h4>Ingredients</h4>
 <ul>
 <li>6 oz semisweet chocolate</li>
-<li>1/2 cup unsalted butter, room temperature</li>
+<li>1/2 cup unsalted butter</li>
 <li>2 cups powdered sugar</li>
 <li>1 teaspoon vanilla extract</li>
-<li>1 tablespoon brewed coffee or milk</li>
+<li>1 tablespoon coffee or milk</li>
 </ul>
 <h4>Instructions</h4>
 <ol>
@@ -132,11 +176,11 @@ hr {
 
 <h3>Ingrédients liquides à ajouter</h3>
 <ul>
-<li>1/2 tasse de lait ou babeurre</li>
+<li>1/2 tasse de lait (ou babeurre)</li>
 <li>1/4 tasse d’huile végétale</li>
 <li>1 gros œuf</li>
 <li>1 cuillère à café de vanille</li>
-<li>Optionnel : 1/4 tasse de café chaud ou eau chaude, lait, babeurre ou chocolat chaud</li>
+<li>1/4 tasse de café (ou eau chaude, lait, babeurre ou chocolat chaud)</li>
 </ul>
 
 <h3>Instructions</h3>
@@ -154,10 +198,10 @@ hr {
 <h4>Ingrédients</h4>
 <ul>
 <li>170 g de chocolat mi-sucré</li>
-<li>125 ml de beurre non salé, à température ambiante</li>
+<li>1/2 tasse de beurre</li>
 <li>500 ml de sucre glace</li>
 <li>1 cuillère à café de vanille</li>
-<li>1 cuillère à soupe de café ou de lait</li>
+<li>1 cuillère à soupe de café ou lait</li>
 </ul>
 <h4>Instructions</h4>
 <ol>
@@ -184,11 +228,11 @@ hr {
 
 <h3>Ingredientes líquidos a adicionar</h3>
 <ul>
-<li>1/2 xícara de leite ou leitelho (buttermilk / babeurre)</li>
+<li>1/2 xícara de leite (ou leitelho)</li>
 <li>1/4 xícara de óleo vegetal</li>
 <li>1 ovo grande</li>
 <li>1 colher de chá de baunilha</li>
-<li>Opcional: 1/4 xícara de café quente ou água quente, leite, leitelho ou chocolate quente</li>
+<li>1/4 xícara de café (ou água quente, leite, leitelho ou chocolate quente)</li>
 </ul>
 
 <h3>Instruções</h3>
@@ -206,7 +250,7 @@ hr {
 <h4>Ingredientes</h4>
 <ul>
 <li>170 g de chocolate meio amargo</li>
-<li>1/2 xícara de manteiga sem sal, em temperatura ambiente</li>
+<li>1/2 xícara de manteiga</li>
 <li>2 xícaras de açúcar de confeiteiro</li>
 <li>1 colher de chá de baunilha</li>
 <li>1 colher de sopa de café ou leite</li>
