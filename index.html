@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christmas Chocolate Cake in a Mason Jar</title>
+<title>Christmas Chocolate Cake in a Jar</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
@@ -29,9 +29,9 @@ body {
 h1 {
     text-align: center;
     font-family: 'Playfair Display', serif;
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 20px;
-    color: #D6001C; /* deeper red */
+    color: #D6001C;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -39,8 +39,8 @@ h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2em;
     margin-top: 40px;
-    color: #2A7111; /* green for contrast */
-    border-bottom: 3px solid #D6001C; /* deeper red border */
+    color: #2A7111;
+    border-bottom: 3px solid #D6001C;
     padding-bottom: 8px;
 }
 
@@ -48,7 +48,7 @@ h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5em;
     margin-top: 25px;
-    color: #D6001C; /* deeper red */
+    color: #D6001C;
 }
 
 p, ul, ol {
@@ -65,7 +65,7 @@ button {
     margin: 10px 5px 30px 5px;
     font-size: 1em;
     font-weight: bold;
-    background: linear-gradient(45deg, #D6001C, #e53935); /* richer reds */
+    background: linear-gradient(45deg, #D6001C, #e53935);
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -90,7 +90,7 @@ button:hover {
     animation-name: fall;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    text-shadow: 0 0 1px #7ec0ee, 0 0 3px #7ec0ee; /* subtle blue outline */
+    text-shadow: 0 0 1px #7ec0ee, 0 0 3px #7ec0ee;
 }
 
 @keyframes fall {
@@ -115,26 +115,21 @@ function createSnowflake() {
     snow.className = 'snowflake';
     snow.style.left = Math.random() * 100 + '%';
     snow.style.fontSize = (Math.random() * 15 + 12) + 'px';
-    snow.style.opacity = Math.random() * 0.8 + 0.2; // subtle opacity variation
-    snow.style.animationDuration = (Math.random() * 10 + 5) + 's'; // random speed
+    snow.style.opacity = Math.random() * 0.8 + 0.2;
+    snow.style.animationDuration = (Math.random() * 10 + 5) + 's';
     snow.innerHTML = '❄';
     document.body.appendChild(snow);
-
-    // Remove snowflake after falling
     snow.addEventListener('animationend', () => snow.remove());
 }
 
-// Spawn snowflakes at random intervals
-setInterval(() => {
-    createSnowflake();
-}, 200); // new snowflake every 200ms
+setInterval(() => { createSnowflake(); }, 200);
 </script>
 
 <div class="container">
-<h1>Christmas Chocolate Cake in a Mason Jar</h1>
+<h1 id="title">Christmas Chocolate Cake in a Jar</h1>
 
 <div style="text-align:center;">
-<button onclick="window.print()">Print Recipe</button>
+<button id="printBtn" onclick="window.print()">Print Recipe</button>
 <button onclick="showLanguage('en')">English</button>
 <button onclick="showLanguage('fr')">Français</button>
 <button onclick="showLanguage('pt')">Português</button>
@@ -142,27 +137,24 @@ setInterval(() => {
 
 <!-- ENGLISH -->
 <div id="en">
-<p>This mason jar contains only the dry ingredients. Add the wet ingredients, mix, bake, and enjoy!</p>
-
-<h2>Dry Ingredients (Inside the Mason Jar)</h2>
+<p>This jar contains only the dry ingredients. Add the wet ingredients, mix, bake, and enjoy!</p>
+<h2>Dry Ingredients (Inside the Jar)</h2>
 <ul>
-<li>3/4 cup all-purpose flour + 2 tbsp</li>
-<li>1/4 cup + 2 tbsp unsweetened cocoa powder</li>
-<li>1 cup granulated sugar</li>
-<li>1 teaspoon baking soda</li>
+<li>3/4 cup + 2 tbsp all-purpose flour </li>
 <li>1/2 teaspoon baking powder</li>
 <li>1/2 teaspoon salt</li>
+<li>1 teaspoon baking soda</li>
+<li>1/4 cup + 2 tbsp unsweetened cocoa powder</li>
+<li>1 cup granulated sugar</li>
 </ul>
-
 <h2>Wet Ingredients to Add</h2>
 <ul>
-<li>1/2 cup buttermilk (milk)</li>
+<li>1/2 cup buttermilk (or milk)</li>
 <li>1/4 cup vegetable oil</li>
 <li>1 large egg</li>
 <li>1 teaspoon vanilla extract</li>
 <li>1/4 cup coffee (or hot water, milk, buttermilk, or hot chocolate)</li>
 </ul>
-
 <h2>Baking Instructions</h2>
 <ol>
 <li>Preheat oven to 350°F (175°C).</li>
@@ -174,22 +166,23 @@ setInterval(() => {
 <li>Bake for 30–35 minutes.</li>
 <li>Cool completely before icing.</li>
 </ol>
-
-<h2>Optional Chocolate Icing (Ina Garten–Style)</h2>
+<h2>Chocolate Icing (Optional)</h2>
 <h3>Ingredients</h3>
 <ul>
-<li>6 oz semisweet chocolate</li>
+<li>6 oz semi-sweet chocolate</li>
 <li>1/2 cup unsalted butter</li>
 <li>2 cups powdered sugar</li>
+<li>1 egg yolk</li>
 <li>1 teaspoon vanilla extract</li>
-<li>1 tablespoon coffee or milk</li>
+<li>1 tablespoon coffee (or milk)</li>
 </ul>
 <h3>Instructions</h3>
 <ol>
 <li>Melt the chocolate gently and let cool slightly.</li>
-<li>Cream the butter until smooth.</li>
-<li>Add powdered sugar and vanilla; mix well.</li>
-<li>Add melted chocolate and coffee or milk.</li>
+<li>Cream the butter until smooth.
+<li> Add egg yolk and vanilla</li>
+<li>Add powdered sugar; mix well.</li>
+<li>Add melted chocolate and coffee (or milk).</li>
 <li>Beat until smooth and spreadable.</li>
 </ol>
 </div>
@@ -197,14 +190,14 @@ setInterval(() => {
 <!-- FRENCH -->
 <div id="fr" style="display:none;">
 <p>Ce pot Mason contient seulement les ingrédients secs. Ajoutez les ingrédients liquides, mélangez, faites cuire et dégustez!</p>
-<h2>Ingrédients secs (dans le pot)</h2>
+<h2>Ingrédients secs (dans le pot Mason)</h2>
 <ul>
-<li>3/4 tasse de farine + 2 c. à soupe</li>
-<li>1/4 tasse + 2 c. à soupe de cacao non sucré</li>
-<li>1 tasse de sucre</li>
-<li>1 cuillère à café de bicarbonate de soude</li>
+<li>3/4 tasse + 2 c. à soupe de farine</li>
 <li>1/2 cuillère à café de poudre à pâte</li>
 <li>1/2 cuillère à café de sel</li>
+<li>1 cuillère à café de bicarbonate de soude</li>
+<li>1/4 tasse + 2 c. à soupe de cacao non sucré</li>
+<li>1 tasse de sucre</li>
 </ul>
 <h2>Ingrédients liquides à ajouter</h2>
 <ul>
@@ -217,19 +210,20 @@ setInterval(() => {
 <h2>Instructions</h2>
 <ol>
 <li>Préchauffer le four à 350°F (175°C).</li>
-<li>Beurrer un moule rond de 20–23 cm.</li>
+<li>Beurrer un moule rond de 20–23 cm (8-9 po).</li>
 <li>Mélanger les ingrédients secs.</li>
 <li>Ajouter les ingrédients liquides.</li>
 <li>Mélanger jusqu’à consistance lisse.</li>
 <li>Cuire 30–35 minutes.</li>
 <li>Laisser refroidir avant de glacer.</li>
 </ol>
-<h2>Glaçage au chocolat (style Ina Garten)</h2>
+<h2>Glaçage au chocolat (optionel)</h2>
 <h3>Ingrédients</h3>
 <ul>
 <li>170 g de chocolat mi-sucré</li>
 <li>1/2 tasse de beurre</li>
 <li>500 ml de sucre glace</li>
+<li>1 jaune d'œuf</li>
 <li>1 cuillère à café de vanille</li>
 <li>1 cuillère à soupe de café ou lait</li>
 </ul>
@@ -237,7 +231,8 @@ setInterval(() => {
 <ol>
 <li>Faire fondre le chocolat et laisser tiédir.</li>
 <li>Crémer le beurre jusqu’à lisse.</li>
-<li>Ajouter le sucre glace et la vanille.</li>
+<li>Ajouter un jaune d'œuf et  de la vanille.
+<li>Ajouter le sucre glace .</li>
 <li>Incorporer le chocolat fondu et le liquide.</li>
 <li>Mélanger jusqu’à texture onctueuse.</li>
 </ol>
@@ -245,19 +240,19 @@ setInterval(() => {
 
 <!-- PORTUGUESE -->
 <div id="pt" style="display:none;">
-<p>Este pote Mason contém apenas os ingredientes secos. Adicione os ingredientes líquidos, misture, asse e aproveite!</p>
+<p>Este frasco contém apenas os ingredientes secos. Adicione os ingredientes líquidos, misture, leve ao forno e aproveite! </p>
 <h2>Ingredientes secos (no frasco)</h2>
 <ul>
-<li>3/4 tassa de farinha + 2 colheres de sopa</li>
-<li>1/4 tassa + 2 colheres de sopa de cacau em pó sem açúcar</li>
-<li>1 tassa de açúcar</li>
-<li>1 colher de chá de bicarbonato de sódio</li>
+<li>3/4 tassa + 2 colheres de sopa de farinha</li>
 <li>1/2 colher de chá de fermento em pó</li>
 <li>1/2 colher de chá de sal</li>
+<li>1 colher de chá de bicarbonato de sódio</li>
+<li>1/4 tassa + 2 colheres de sopa de cacau em pó sem açúcar</li>
+<li>1 tassa de açúcar</li>
 </ul>
 <h2>Ingredientes líquidos a adicionar</h2>
 <ul>
-<li>1/2 tassa de leitelho (leite)</li>
+<li>1/2 tassa de leitelho (babeurre)ou leite</li>
 <li>1/4 tassa de óleo vegetal</li>
 <li>1 ovo grande</li>
 <li>1 colher de chá de baunilha</li>
@@ -266,39 +261,56 @@ setInterval(() => {
 <h2>Instruções</h2>
 <ol>
 <li>Pré-aqueça o forno a 350°F (175°C).</li>
-<li>Unte uma forma redonda de 20–23 cm.</li>
+<li>Unte uma forma redonda de 20–23 cm (8-9 polegadas).</li>
 <li>Misture os ingredientes secos.</li>
 <li>Adicione os ingredientes líquidos.</li>
 <li>Misture até ficar homogêneo.</li>
-<li>Asse por 30–35 minutos.</li>
-<li>Deixe esfriar antes de cobrir.</li>
+<li>Leve ao forno por 30–35 minutos.</li>
+<li>Deixe arrefecer antes de cobrir.</li>
 </ol>
-<h2>Cobertura de chocolate (estilo Ina Garten)</h2>
+<h2>Creme de chocolate (Opcional)</h2>
 <h3>Ingredientes</h3>
 <ul>
 <li>170 g de chocolate meio amargo</li>
 <li>1/2 tassa de manteiga</li>
-<li>2 tassas de açúcar de confeiteiro</li>
+<li>2 tassas de açúcar em pó</li>
+<li>1 gema de ovo</li>
 <li>1 colher de chá de baunilha</li>
-<li>1 colher de sopa de café ou leite</li>
+<li>1 colher de sopa de café (ou leite)</li>
 </ul>
 <h3>Instruções</h3>
 <ol>
-<li>Derreta o chocolate e deixe esfriar levemente.</li>
+<li>Derreta o chocolate e deixe arrefecer levemente.</li>
 <li>Bata a manteiga até ficar cremosa.</li>
-<li>Adicione o açúcar e a baunilha.</li>
+<li> Adicione uma gema de ovo e baunilha.</li>
+<li>Adicione o açúcar.</li>
 <li>Incorpore o chocolate e o líquido.</li>
-<li>Bata até obter uma cobertura lisa.</li>
+<li>Bata até obter um creme liso e homogéneo.</li>
 </ol>
 </div>
 
 <script>
-// Language switcher
+// Language switcher with dynamic title and print
 function showLanguage(lang) {
     document.getElementById('en').style.display = 'none';
     document.getElementById('fr').style.display = 'none';
     document.getElementById('pt').style.display = 'none';
     document.getElementById(lang).style.display = 'block';
+
+    const titles = {
+        en: "Christmas Chocolate Cake in a Jar",
+        fr: "Gâteau au chocolat de Noël dans un pot Mason",
+        pt: "Bolo de chocolate de Natal no frasco"
+    };
+
+    const printText = {
+        en: "Print Recipe",
+        fr: "Imprimer la recette",
+        pt: "Imprimir Receita"
+    };
+
+    document.getElementById('title').innerText = titles[lang];
+    document.getElementById('printBtn').innerText = printText[lang];
 }
 </script>
 
